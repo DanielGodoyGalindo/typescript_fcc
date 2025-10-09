@@ -44,7 +44,7 @@ Este repositorio contiene ejemplos y notas prácticas sobre los principales conc
 ---
 
 ### 📁 Otros
-*(Aquí puedes añadir temas futuros o secciones extra que vayas aprendiendo)*
+*(Para añadir conceptos extra)*
 
 ---
 
