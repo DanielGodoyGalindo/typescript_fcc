@@ -54,6 +54,34 @@ console.log(getFirstElement(numbers)); // 10
 console.log(getFirstElement(fruits));  // "apple"
 
 
+/////////////////// Generics with arrays 2
+
+// A generic function that works with arrays of any type <T>
+function getSearchProducts<T>(products: T[]): T {
+    // Simulate some database operations or filtering logic
+    const myIndex = 3;
+
+    // Return the element at index 3
+    // The '!' (non-null assertion operator) tells TypeScript that we are sure
+    // the value is NOT undefined. Be careful: if the array has fewer than 4 elements,
+    // this will throw a runtime error.
+    return products[myIndex]!;
+}
+
+
+/////////////////// Generics with arrow function
+
+// The same logic as above, but using an arrow function syntax
+// <T> defines a generic type parameter so this function can handle arrays of any type
+const getMoreSearchProducts = <T>(products: T[]): T => {
+    // Simulate some database or API operations
+    const myIndex = 4;
+
+    // Return the element at index 4, asserting it exists
+    return products[myIndex]!;
+};
+
+
 ///////////////////// Filter objects by generic property
 
 // Generic function that filters an array of objects by a specific property and value
@@ -89,3 +117,61 @@ console.log(admins);
 const bob = filterByProperty(users, "name", "Bob");
 console.log(bob);
 // [{ id: 2, name: "Bob", isAdmin: false }]
+
+
+
+//////////////// Example with generics, an interface, and a function
+
+// Define a basic interface that represents a database connection
+interface Database {
+    connection: string,
+    username: string,
+    password: string
+}
+
+// A generic function that accepts two parameters:
+// - T: a generic type (can be anything)
+// - U: a generic type that must extend the Database interface
+// This means U must have all the properties of Database
+function anotherFunction<T, U extends Database>(val1: T, val2: U): object {
+    // Returns both values inside an object
+    return { val1, val2 }
+}
+
+// Example call: val1 is a number, val2 is an object that matches Database
+anotherFunction(3, { connection: "hey", username: "you", password: "bye" })
+
+
+///////////////// Example with generics and a class
+
+// Define an interface for a Quiz object
+interface Quiz {
+    name: string,
+    family: string
+}
+
+// Define another interface for a Course object
+interface Course {
+    name: string,
+    author: string,
+    subject: string
+}
+
+// A generic class that can handle a list (cart) of any type T
+class Syllable<T> {
+    // Property to store an array of type T
+    public cart: T[] = []
+    
+    // Method to add a new item (of type T) to the cart
+    addToCart(product: T) {
+        this.cart.push(product)
+    }
+}
+
+// Example usage:
+// You could create a Syllable for quizzes or for courses
+// const quizCart = new Syllable<Quiz>()
+// quizCart.addToCart({ name: "Math Quiz", family: "Algebra" })
+
+// const courseCart = new Syllable<Course>()
+// courseCart.addToCart({ name: "TS Basics", author: "John", subject: "TypeScript" })
