@@ -42,7 +42,10 @@ This repository contains examples and practical notes about the main **TypeScrip
 ---
 
 ### Others
-- Special operators (WIP)
+- [Type narrowing (typeof, instanceof and in)](https://github.com/DanielGodoyGalindo/typescript_fcc/blob/main/03PROJECT/src/narrowing.ts)
+- [Type Guards and Type Predicates](https://github.com/DanielGodoyGalindo/typescript_fcc/blob/main/03PROJECT/src/narrowing.ts)
+- [Discriminated Unions and Exhaustive Checking (never type)](https://github.com/DanielGodoyGalindo/typescript_fcc/blob/main/03PROJECT/src/unions.ts)
+- [Special operators(?. / ?? / ?.() / ?.[])](https://github.com/DanielGodoyGalindo/typescript_fcc/blob/main/04OTHERS/operators.ts)
 
 ---
 
@@ -56,4 +59,3 @@ This repository contains examples and practical notes about the main **TypeScrip
 ## Reference:
 freeCodeCamp.org – Learn TypeScript – Full Tutorial
 [Watch on YouTube](https://www.youtube.com/watch?v=30LWjhZzg50)
-Current lesson timemark 4:07:22
